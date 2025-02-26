@@ -1,0 +1,5 @@
+card/migrations
+blog/migrations
+blog/__pycache__/
+card/__pycache__/
+portfolio/__pycache__/

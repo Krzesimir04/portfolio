@@ -1,0 +1,266 @@
+$primary-color: #0D9EF2;
+$text-color: black;
+$bg-color: #F9F9F9;
+
+@font-face {
+    font-family: 'didact gothic';
+    src: url(/static/DidactGothic-Regular.ttf);
+}
+
+/* animations */
+@keyframes fade_in {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes turn{
+    from{
+        transform: rotate(360deg);
+    }
+    to{
+        transform: rotate(0);
+    }
+}
+@keyframes bigger {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+*{
+    font-family: 'didact gothic' ;
+}
+
+body{
+margin: 0;
+}
+a{
+    text-decoration: none;
+}
+/* header and navigation styles */
+
+header{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    place-content: space-around;
+    align-items: center;
+    padding: 15px;
+
+}
+#logo{
+    font-size: 35px;
+    a{
+        color: $text-color;
+        text-decoration: none;
+        letter-spacing: -1px;
+    }
+
+    #logo_slash{
+        width: 0.1em;
+        height: 1.3em;
+        display: inline-block;
+        background-color: $primary-color;
+        position: relative;
+        bottom: -10px;
+        rotate: (20deg);
+    }
+}
+nav{
+    display: flex;
+    align-items: center;
+    a{
+        padding: 0 20px 0 5px;
+        margin: 0 7px;
+        color: $text-color;
+        text-decoration: none;
+        font-size: 25px;
+        position: relative;
+        overflow: hidden;
+    }
+    a::after{
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        background-color: $primary-color;
+        left: -100%;
+        bottom: 0;
+        transition: left 0.5s;
+        z-index: -1;
+    }
+    a:hover:after{
+        left: 0;
+    }
+    a:active:after{
+        left: 0;
+    }
+}
+
+/* hero section */
+
+#hero,section{
+    display:flex;
+    justify-content: space-between;
+    padding: 0 100px;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    margin-bottom: 50px;
+}
+#hero{
+    height: 88vh;
+    overflow: hidden;
+    position: relative;
+    flex-direction: row;
+}
+#hero:after{
+    content: '';
+    background-color: $primary-color;
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    rotate: -60deg;
+    right:-70%;
+    animation: bigger 0.5s 0.5s both;
+}
+#hero>div{
+    margin-bottom:80px;
+}
+#about_me{
+    align-items: flex-start;
+}
+h1{
+    font-size: 4em;
+    letter-spacing: -0.8px;
+    margin: 0;
+}
+h2{
+    margin: 0px;
+    font-size: 2.5em;
+}
+h3{
+    margin: 0px;
+    font-size: 2.2em;
+}
+.second-heading{
+    font-size: 2em;
+}
+.bigger{
+    font-size: 1.5em;
+}
+
+.blue-border{
+    position: relative;
+    img{
+        object-fit: cover;
+        display: block;
+        width: 100%;
+        height: 100%;
+        // margin:30px;
+        filter: brightness(1.5);
+    }
+}
+.blue-border:after{
+    content: '';
+    position: absolute;
+    padding: 0;
+    top: -35px;
+    left: -35px;
+    width: 100%;
+    height: 100%;
+    border: 5px $primary-color solid;
+    z-index: -1;
+    animation: bigger 0.5s both;
+}
+.section-text{
+    margin-right: 40px;
+}
+.section-photo{
+    width: 30em;
+}
+.section-photo img{
+    animation: fade_in 0.6s 0.5s both;
+}
+
+.custom_underline{
+    position: relative;
+    display: inline-block;
+}
+.custom_underline::after{
+    content: '';
+    position: absolute;
+    height: 0.14em;
+    width: 110%;
+    background-color: $primary-color;
+    z-index: -1;
+    bottom: 0.17em;
+    left: 0;
+}
+.btn{
+    color: $text-color;
+    font-size: 1.5em;
+    background-color: $primary-color;
+    padding: 6px 15px;
+    width: fit-content;
+    display: grid;
+    place-content: center;
+}
+
+.socials{
+    display: grid;
+    grid-template-columns: 1fr min-content min-content;
+}
+.social_icon{
+    width: 40px;
+    margin: 5px;
+    path{
+        fill: black;
+        transition: fill 0.5s;
+    }
+}
+.social_icon:hover path{
+    fill: $primary-color;
+}
+
+#chart-container{
+    display: grid;
+    place-content: center;
+    // margin-top: -230px;
+    span{
+        width: 35vw;
+    }
+}
+.hidden{
+    opacity: 0;
+}
+.visible_anim{
+    animation: bigger 0.8s both;
+}
+
+@keyframes cursor {
+    50%{
+        opacity: 0;
+    }
+}
+.text_animation_testimonials{
+    position: relative;
+    min-width: 3px;
+}
+.text_animation_testimonials::after{
+    content: '';
+    width: 2px;
+    height: 1em;
+    background-color: $text-color;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: cursor 0.4s infinite both;
+}

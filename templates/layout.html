@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Makowski{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="{% url 'index' %}">
+                Makowski <div id="logo_slash"></div>
+            </a>
+        </div>
+        <nav>
+            <a href="#">About</a>
+            <a href="#">Work</a>
+            <a href="#">Contact</a>
+            <a href="#">Blog</a>
+        </nav>
+    </header>
+    {% block body %}
+    {% endblock %}
+
+    {% block script %}
+    {% endblock %}
+</body>
+</html>
