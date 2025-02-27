@@ -80,6 +80,8 @@ const data = {
 document.addEventListener('DOMContentLoaded',()=>{
   animationWriting('others', 'you', '.text_animation_testimonials')
   getAllTestimonials()
+  getAllSkills()
+  getAllProjects()
 })
 
 // animation - writing
@@ -124,27 +126,111 @@ setInterval(()=>{
 
 // API calls
 
+/**
+ * Get all testimonials
+ *
+ */
 async function getAllTestimonials() {
   try{
     const req = await fetch('/api/testimonials')
     const data = await req.json()
     if (req.ok){
-      console.log(data)
       data.testimonials.forEach(testimonial => {
         const markup = `
               <div class="testimonial">
-                <img src="${testimonial.personsPhoto}" alt="${testimonial.fullName} photo">
-                <p class="testimonials_full_name">${testimonial.fullName} </p>
-                <p class="testimonials_text">${testimonial.shortText}</p>
-                <a href="" class="testimonials_btn btn"></a>
+                <div class="blue-border">
+                <img src="${testimonial.image}" alt="${testimonial.clientName} photo" class="testimonial__photo">
+                </div>
+                <p class="testimonial__full_name">${testimonial.clientName} </p>
+                <p class="testimonial__company">${testimonial.company} </p>
+                <p class="testimonial__text">${testimonial.shortText}</p>
+                <a href="${testimonial.file}" class="testimonial__btn btn">full reference</a>
               </div>
         `
         document.querySelector('.testimonials').insertAdjacentHTML('beforeend',markup)
       });
     }else{
-
+      throw new Error('something wrong happened.')
     }
   }catch(error){
     console.warn(error)
+    const markup = `
+    <div class="testimonial">
+      <p class="testimonial__text">${error}</p>
+    </div>
+`
+    document.querySelector('.testimonials').insertAdjacentHTML('beforeend',markup)
+  }
+}
+
+
+/**
+ * Get all skills
+ *
+ */
+async function getAllSkills() {
+  try{
+    const req = await fetch('/api/skills')
+    const data = await req.json()
+    if (req.ok){
+      data.skills.forEach(skill => {
+        const markup = `
+              <p class="skill">
+                ${skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
+                <img src="${skill.icon}">
+                </p>`
+        document.querySelector('.skills').insertAdjacentHTML('beforeend',markup)
+      });
+    }else{
+      throw new Error('something wrong happened.')
+    }
+  }catch(error){
+    console.warn(error)
+    const markup = `
+      <p class="skill">${error}</p>
+`
+    document.querySelector('.skills').insertAdjacentHTML('beforeend',markup)
+  }
+}
+
+
+
+/**
+ * Get all projects
+ *
+ */
+async function getAllProjects() {
+  try{
+    const req = await fetch('/api/projects')
+    const data = await req.json()
+    if (req.ok){
+      data.projects.forEach((project,i) => {
+        const markup = `
+        <div class="project">
+            <img src="${project.image}" alt="${project.title} site">
+            <div class="project__description">
+                <div class="project__description_company-data">
+                    <p class="company-name">${project.title}</p>
+                    <a href="${project.liveDemo}" class="company-website">${project.liveDemo.slice(7)}</a>
+                </div>
+                <div class="project__description_technologies" id="pr${i}">
+
+            </div>
+            </div>`
+            document.querySelector('.projects').insertAdjacentHTML('beforeend',markup)
+            project.technologies.forEach(tech=>{
+              document.querySelector(`#pr${i}`).insertAdjacentHTML ('beforeend',`<img src="${tech}" alt="${tech}">`)
+      });
+    })
+
+    }else{
+      throw new Error('something wrong happened.')
+    }
+  }catch(error){
+    console.warn(error)
+    const markup = `
+      <p class="project">${error}</p>
+`
+    document.querySelector('.projects').insertAdjacentHTML('beforeend',markup)
   }
 }

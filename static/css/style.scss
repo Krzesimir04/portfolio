@@ -1,5 +1,6 @@
 $primary-color: #0D9EF2;
 $text-color: black;
+$text-color-secondary: rgb(52, 52, 52);
 $bg-color: #F9F9F9;
 
 @font-face {
@@ -109,12 +110,13 @@ nav{
     justify-content: space-between;
     padding: 0 100px;
     flex-direction: column;
-    align-items: center;
     text-align: left;
     margin-bottom: 50px;
+    align-items: flex-start;
 }
 #hero{
-    height: 88vh;
+    align-items: center;
+    height: 90vh;
     overflow: hidden;
     position: relative;
     flex-direction: row;
@@ -263,4 +265,175 @@ h3{
     right: 0;
     bottom: 0;
     animation: cursor 0.4s infinite both;
+}
+
+/* testimonial */
+.testimonials{
+    align-self: center;
+}
+.testimonial{
+    width: 50%;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:30px 0;
+    .blue-border{
+        width:95px;
+        height: 95px;
+        &::after{
+            border-radius: 50%;
+            top: -18px;
+            left:-18px;
+        }
+        & .testimonial__photo{
+            width:95px;
+            height: 95px;
+            border-radius: 50%;
+            filter: none;
+        }
+    }
+    &__full_name{
+        font-size: 1.5em;
+        margin-bottom: 0;
+    }
+    &__company{
+        margin: 5px 0;
+        color: $text-color-secondary;
+        font-size: 1.2em;
+    }
+    &__text{
+        font-size: 1.3em;
+    }
+}
+.skills{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 80%;
+    align-self: center;
+    text-align: center;
+}
+.skill{
+    font-size: 1.5em;
+    display: grid;
+    align-items: center;
+    width: 100%;
+    height: 8em;
+    margin: 0;
+    position: relative;
+    transition: all 1s;
+    img{
+        filter: grayscale(1);
+        width: 30%;
+        height: 75%;
+        position: absolute;
+        z-index: -1;
+        left:35%;
+        opacity: 0.22;
+        transition: all 1s;
+    }
+    &:hover img{
+        transform: scale(1.3);
+        filter: grayscale(0);
+        z-index: 0;
+        opacity: 1;
+    }
+    &:hover{
+        color:transparent
+    }
+}
+
+.projects{
+    align-self: center;
+    display: grid;
+    place-content: center;
+    gap:30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-width: 500px;
+    max-width: 90%;
+    margin: 3em 0;
+    font-size: 1.2em;
+    .project{
+        width:100%;
+        transition: all 0.6s;
+        min-width: 370px;
+        &:hover{
+            transform: scale(1.05);
+            box-shadow: 0 0 15px -7px black;
+        }
+        img{
+            width: 100%;
+            height: 70%;
+        }
+        &__description{
+            background-color: #F0F0F0;
+            padding:15px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            height: 20%;
+            p{
+                margin: 0;
+            }
+            &_company-data{
+            }
+            &::after{
+                content:'';
+                position:absolute;
+                display: block;
+                width: 2px;
+                height: 160px;
+                background-color: $primary-color;
+                left: 45%;
+                top:-20px;
+                transform: rotate(20deg);
+            }
+            &_technologies{
+                min-width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                img{
+                    height: 40px;
+                    width: 40px;
+                }
+            }
+        }
+        a{
+            color: $primary-color;
+            font-size: 0.8em;
+        }
+    }
+
+}
+
+footer{
+    border-bottom: 5px solid $primary-color ;
+    border-top: 5px solid $primary-color ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 30vh;
+    font-size: 1.3em;
+    padding:20px;
+    position: relative;
+    overflow: hidden;
+    .contact{
+        text-align: center;
+        height: 5em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        a{
+            line-height: 1.2em;
+        }
+
+    }
+    &::after{
+        content: '';
+
+    }
 }

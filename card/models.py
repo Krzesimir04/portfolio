@@ -69,17 +69,23 @@ class User(AbstractUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
+class Category(models.Model):
+    name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.name
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     proficiency = models.IntegerField(help_text="Enter a value from 1-100 for skill level")
-    icon = models.ImageField(upload_to="skills/", blank=True, null=True)
+    icon = models.FileField(upload_to="skills/", blank=True, null=True)
+    category = models.ForeignKey(Category, models.SET_NULL, default=None, null=True)
 
     def serialize(self):
         return {
             "name": self.name,
             "proficiency": self.proficiency,
             "icon": self.icon.url if self.icon else None,
+            "category": self.category.name,
         }
 
     def __str__(self):
@@ -100,7 +106,7 @@ class Project(models.Model):
         return {
             "title": self.title,
             "description": self.description,
-            "technologies": [skill.name for skill in self.technologies.all()],
+            "technologies": [skill.icon.url for skill in self.technologies.all()],
             "image": self.image.url if self.image else None,
             "logo": self.logo.url if self.logo else None,
             "githubLink": self.github_link,
@@ -120,6 +126,7 @@ class Testimonial(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     def serialize(self):
+        print(self.image.url)
         return {
             "clientName": self.client_name,
             "shortText": self.shortText,

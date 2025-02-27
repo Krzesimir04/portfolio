@@ -9,7 +9,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
 
-from .models import User, Testimonial, Project,Skill
+from .models import User, Testimonial, Project, Skill, Category
 
 
 class UserCreationForm(forms.ModelForm):
@@ -92,5 +92,6 @@ admin.site.register(User, UserAdmin)
 # unregister the Group model from admin.
 admin.site.unregister(Group)
 admin.site.register(Skill)
+admin.site.register(Category)
 admin.site.register(Project)
 admin.site.register(Testimonial)
