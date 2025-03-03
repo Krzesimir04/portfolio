@@ -15,10 +15,10 @@
             </a>
         </div>
         <nav>
-            <a href="#">About</a>
-            <a href="#">Work</a>
-            <a href="#">Contact</a>
-            <a href="#">Blog</a>
+            <a href="/#about_me" data-elemId="about_me">About</a>
+            <a href="/#work" data-elemId="work">Work</a>
+            <a href="/#contact" data-elemId="contact">Contact</a>
+            <a href="{% url 'blog' %}" data-link="blog">Blog</a>
         </nav>
     </header>
     {% block body %}
@@ -29,7 +29,7 @@
                 Makowski <div id="logo_slash"></div>
             </a>
         </div>
-        <div class="contact">
+        <div class="contact" id="contact">
             <a href="mailto:krzesimir.makowski@protonmail.com">krzesimir.makowski@protonmail.com</a>
             <div class="icons">
                 <a href="https://github.com/Krzesimir04">
@@ -52,6 +52,5 @@
     </footer>
     {% block script %}
     {% endblock %}
-
 </body>
 </html>

@@ -4,55 +4,70 @@
 {% block script %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="{% static 'js/card.js' %}" type="module"></script>
+<script src="{% static 'js/manageContent.js' %}" type="module"></script>
+<script src="{% static 'js/blog.js' %}" type="module"></script>
 {% endblock %}
 
 {% block body %}
 
-<section id="hero">
-    <div class="section-text">
-        <h1>Hi I'm <span class="custom_underline">Krzesimir</span></h1>
-        <h2 class="second-heading">Web Developer</h2>
-        <p class="bigger">Crafting engaging and user-friendly web experiences is my passion.</p>
-        <div class="socials">
-            <a href="#" class="btn">check my blog</a>
-            <a href="https://github.com/Krzesimir04">
-                <svg class="social_icon" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M256 32C132.3 32 32 134.8 32 261.7C32 363.2 96.2 449.2 185.2 479.6C196.4 481.7 200.5 474.6 200.5 468.5C200.5 463 200.3 448.6 200.2 429.4C137.9 443.3 124.7 398.6 124.7 398.6C114.5 372.1 99.8 365 99.8 365C79.5 350.7 101.3 351 101.3 351C123.8 352.6 135.6 374.7 135.6 374.7C155.6 409.8 188 399.7 200.8 393.8C202.8 379 208.6 368.8 215 363.1C165.3 357.3 113 337.6 113 249.6C113 224.5 121.7 204 136 188C133.7 182.2 126 158.8 138.2 127.2C138.2 127.2 157 121 199.8 150.7C217.7 145.6 236.8 143.1 255.9 143C274.9 143.1 294.1 145.6 312 150.7C354.8 121 373.5 127.2 373.5 127.2C385.7 158.8 378 182.2 375.7 188C390 204.1 398.7 224.6 398.7 249.6C398.7 337.8 346.3 357.2 296.4 362.9C304.4 370 311.6 384 311.6 405.4C311.6 436.1 311.3 460.9 311.3 468.4C311.3 474.5 315.3 481.7 326.7 479.4C415.9 449.1 480 363.1 480 261.7C480 134.8 379.7 32 256 32Z" fill="black"/>
-                </svg>
-            </a>
-            <a href="https://www.linkedin.com/in/krzesimir-makowski-98823a264/">
-                <svg class="social_icon"  viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M256 46.531C140.018 46.531 46 140.315 46 255.996C46 371.685 140.018 465.469 256 465.469C371.975 465.469 466 371.686 466 255.996C466 140.315 371.975 46.531 256 46.531ZM194.398 348.41H146.041V202.888H194.398V348.41ZM170.22 183.017H169.911C153.677 183.017 143.18 171.835 143.18 157.867C143.18 143.606 153.993 132.74 170.544 132.74C187.087 132.74 197.274 143.606 197.591 157.867C197.591 171.835 187.087 183.017 170.22 183.017ZM368.819 348.41H320.455V270.551C320.455 250.997 313.46 237.646 295.945 237.646C282.595 237.646 274.636 246.644 271.134 255.334C269.862 258.452 269.545 262.789 269.545 267.141V348.411H221.173C221.173 348.411 221.813 216.541 221.173 202.889H269.545V223.491C275.96 213.59 287.459 199.471 313.128 199.471C344.964 199.471 368.818 220.268 368.818 264.966V348.41H368.819Z" fill="black"/>
-                </svg>
-            </a>
+<div id="index_page">
+
+    <section id="hero">
+        <div class="section-text">
+            <h1>Hi I'm <span class="custom_underline">Krzesimir</span></h1>
+            <h2 class="second-heading">Web Developer</h2>
+            <p class="bigger">Crafting engaging and user-friendly web experiences is my passion.</p>
+            <div class="socials">
+                <a href="#" class="btn">check my blog</a>
+                <a href="https://github.com/Krzesimir04">
+                    <svg class="social_icon" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M256 32C132.3 32 32 134.8 32 261.7C32 363.2 96.2 449.2 185.2 479.6C196.4 481.7 200.5 474.6 200.5 468.5C200.5 463 200.3 448.6 200.2 429.4C137.9 443.3 124.7 398.6 124.7 398.6C114.5 372.1 99.8 365 99.8 365C79.5 350.7 101.3 351 101.3 351C123.8 352.6 135.6 374.7 135.6 374.7C155.6 409.8 188 399.7 200.8 393.8C202.8 379 208.6 368.8 215 363.1C165.3 357.3 113 337.6 113 249.6C113 224.5 121.7 204 136 188C133.7 182.2 126 158.8 138.2 127.2C138.2 127.2 157 121 199.8 150.7C217.7 145.6 236.8 143.1 255.9 143C274.9 143.1 294.1 145.6 312 150.7C354.8 121 373.5 127.2 373.5 127.2C385.7 158.8 378 182.2 375.7 188C390 204.1 398.7 224.6 398.7 249.6C398.7 337.8 346.3 357.2 296.4 362.9C304.4 370 311.6 384 311.6 405.4C311.6 436.1 311.3 460.9 311.3 468.4C311.3 474.5 315.3 481.7 326.7 479.4C415.9 449.1 480 363.1 480 261.7C480 134.8 379.7 32 256 32Z" fill="black"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/krzesimir-makowski-98823a264/">
+                    <svg class="social_icon"  viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M256 46.531C140.018 46.531 46 140.315 46 255.996C46 371.685 140.018 465.469 256 465.469C371.975 465.469 466 371.686 466 255.996C466 140.315 371.975 46.531 256 46.531ZM194.398 348.41H146.041V202.888H194.398V348.41ZM170.22 183.017H169.911C153.677 183.017 143.18 171.835 143.18 157.867C143.18 143.606 153.993 132.74 170.544 132.74C187.087 132.74 197.274 143.606 197.591 157.867C197.591 171.835 187.087 183.017 170.22 183.017ZM368.819 348.41H320.455V270.551C320.455 250.997 313.46 237.646 295.945 237.646C282.595 237.646 274.636 246.644 271.134 255.334C269.862 258.452 269.545 262.789 269.545 267.141V348.411H221.173C221.173 348.411 221.813 216.541 221.173 202.889H269.545V223.491C275.96 213.59 287.459 199.471 313.128 199.471C344.964 199.471 368.818 220.268 368.818 264.966V348.41H368.819Z" fill="black"/>
+                    </svg>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="blue-border section-photo">
-        <img src="{% static 'images/Krzesimir.png' %}" alt="Krzesimir Makowski's photo" class="" loading="lazy">
-    </div>
-</section>
-<!-- <div id="chart-container">
-    <span>
+        <div class="blue-border section-photo">
+            <img src="{% static 'images/Krzesimir.png' %}" alt="Krzesimir Makowski's photo" class="" loading="lazy">
+        </div>
+    </section>
+    <!-- <div id="chart-container">
+        <span>
 
-        <canvas id="chart"></canvas>
-    </span>
-</div> -->
-<section id="about_me">
-    <h2 class="custom_underline">About me</h2>
-    <p class="bigger">I'm Krzesimir - developer from Poland, who is passionate about creating high-performing web experiences, continuous improvement and expanding knowledge. I am also a Computer Science student at Wrocław University of Science and Technology. Whether exploring the internet or the outdoors, I love an open mindset and apply it to my projects.
-    </p>
-    <h3>What do <span class="text_animation_testimonials">others</span> think about me?</h3>
-    <div class="testimonials">
+            <canvas id="chart"></canvas>
+        </span>
+    </div> -->
+
+    <section id="about_me">
+        <h2 class="custom_underline">About me</h2>
+        <p class="bigger">I'm Krzesimir - developer from Poland, who is passionate about creating high-performing web experiences, continuous improvement and expanding knowledge. I am also a Computer Science student at Wrocław University of Science and Technology. Whether exploring the internet or the outdoors, I love an open mindset and apply it to my projects.
+        </p>
+
+        <h3 class="custom_underline">Skillset</h3>
+        <div class="skills"></div>
+        <h3 class="custom_underline">What do <span class="text_animation_testimonials">others</span> think about me?</h3>
+        <div class="testimonials">
+        </div>
+    </section>
+
+    <section id="work">
+        <h2 class="custom_underline">Work</h2>
+        <div class="projects">
+        </div>
+    </section>
+</div>
+
+<div id="blog_page">
+    <div class="posts">
+
+
     </div>
-
-    <h3 class="custom_underline">Skillset</h3>
-    <div class="skills"></div>
-</section>
-<section id="work">
-    <h2 class="custom_underline">Work</h2>
-    <div class="projects">
-
-
+    <div class="categories">
+        <h3>Categories</h3>
     </div>
-</section>
+</div>
 {% endblock %}

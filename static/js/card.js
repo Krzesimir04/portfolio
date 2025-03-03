@@ -76,12 +76,13 @@ const data = {
 //   el.classList.remove('hidden')
 //   el.classList.add('visible_anim')
 // })
-
-document.addEventListener('DOMContentLoaded',()=>{
+export function createProfilePage(){
   animationWriting('others', 'you', '.text_animation_testimonials')
   getAllTestimonials()
   getAllSkills()
   getAllProjects()
+}
+document.addEventListener('DOMContentLoaded',()=>{
 })
 
 // animation - writing
@@ -192,7 +193,6 @@ async function getAllSkills() {
     document.querySelector('.skills').insertAdjacentHTML('beforeend',markup)
   }
 }
-
 
 
 /**

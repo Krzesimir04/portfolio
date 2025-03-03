@@ -104,6 +104,7 @@ class Project(models.Model):
 
     def serialize(self):
         return {
+            "id":self.id,
             "title": self.title,
             "description": self.description,
             "technologies": [skill.icon.url for skill in self.technologies.all()],

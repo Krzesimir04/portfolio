@@ -11,7 +11,6 @@ def index(request):
 def api_testimonials(request):
     try:
         if request.method == 'GET':
-            print(request)
             testimonials  = Testimonial.objects.all()
             data = [testimonial.serialize() for testimonial in testimonials]
             return JsonResponse({'testimonials': data})
@@ -37,5 +36,4 @@ def api_projects(request):
             data = [project.serialize() for project in projects]
             return JsonResponse({'projects': data})
     except Exception as e:
-        print(e)
         return JsonResponse({'error': 'Error occurred, we will fix it soon :)'})
