@@ -69,23 +69,16 @@ class User(AbstractUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
-class Category(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     proficiency = models.IntegerField(help_text="Enter a value from 1-100 for skill level")
     icon = models.FileField(upload_to="skills/", blank=True, null=True)
-    category = models.ForeignKey(Category, models.SET_NULL, default=None, null=True)
 
     def serialize(self):
         return {
             "name": self.name,
             "proficiency": self.proficiency,
             "icon": self.icon.url if self.icon else None,
-            "category": self.category.name,
         }
 
     def __str__(self):

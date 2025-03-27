@@ -26,7 +26,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
-    category = models.ManyToManyField(Category, blank=True, related_name="posts")
+    category = models.ManyToManyField(Category, blank=True, related_name="posts_cat")
     featured_image = models.ImageField(upload_to="blog/images", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -34,6 +34,7 @@ class Post(models.Model):
 
     def serialize(self):
         return{
+            'id': self.id,
             'title':self.title,
             'author':self.author.full_name,
             'content':self.content,

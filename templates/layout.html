@@ -14,11 +14,16 @@
                 Makowski <div id="logo_slash"></div>
             </a>
         </div>
+        <button class="hamburger">
+            <span class="hamburger__box">
+                <span class="hamburger__inner"></span>
+            </span>
+        </button>
         <nav>
             <a href="/#about_me" data-elemId="about_me">About</a>
             <a href="/#work" data-elemId="work">Work</a>
             <a href="/#contact" data-elemId="contact">Contact</a>
-            <a href="{% url 'blog' %}" data-link="blog">Blog</a>
+            <a id='blog_link' href="{% url 'blog' %}" data-link="blog">Blog</a>
         </nav>
     </header>
     {% block body %}
