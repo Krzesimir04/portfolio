@@ -468,10 +468,9 @@ h3::after {
 }
 
 .posts {
-  width: -moz-fit-content;
-  width: fit-content;
   justify-self: flex-end;
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .post {
@@ -513,6 +512,7 @@ h3::after {
 }
 .post__short-text, .post h2 {
   padding: 10px;
+  word-break: break-all;
 }
 .post h2 {
   position: relative;

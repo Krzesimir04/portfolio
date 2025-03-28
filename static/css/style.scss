@@ -450,14 +450,13 @@ h3::after{
     padding: 0 13%;
 }
 .posts{
-    width: fit-content;
     justify-self: flex-end;
     margin-bottom: 30px;
+    width: 100%;
 }
 .post{
     margin: 20px;
     min-width: min-content;
-    // max-width: 800px;
     display: block;
     color: $text-color;
     width: auto;
@@ -492,6 +491,7 @@ h3::after{
     }
     &__short-text ,h2{
         padding: 10px;
+        word-break: break-all;
 
     }
     h2{
