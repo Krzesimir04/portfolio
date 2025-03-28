@@ -41,10 +41,7 @@ window.addEventListener('popstate',()=>{
     if(window.location.href.includes('blog')){
         profilePage.style.display = 'none'
         blogPage.style.display = 'grid'
-        // if(firstLoadBlog){
-            createBlogView()
-        // }
-        // firstLoadBlog = false
+        createBlogView()
     }else{
         profilePage.style.display = 'block'
         blogPage.style.display = 'none'

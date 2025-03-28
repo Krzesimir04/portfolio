@@ -1,89 +1,9 @@
-const data = {
-    labels: [
-      'Backend',
-      'Design',
-      'Python',
-      'JavaScript',
-      'SQL',
-      'Frontend'
-    ],
-    datasets: [{
-
-      data: [50, 50, 50, 50, 50, 50],
-      fill: true,
-      // tension:0.3,
-      backgroundColor: '#48b5f4',
-      borderColor: '#0D9EF2',
-    }]
-  };
-
-  const config = {
-    type: 'radar',
-    data: data,
-    options: {
-      elements: {
-        line: {
-          borderWidth: 5
-        }
-      },
-      plugins:{
-
-        legend:{
-          display: false,
-        },tooltip:{
-          enabled:false,
-        }
-      },
-      scales:{
-        r: {
-          min:0,
-          max:100,
-            angleLines: {
-                display: false,
-                lineWidth:3,
-                borderDash:[10]
-            },
-            grid:{
-              display:true,
-              lineWidth:30
-            },
-            ticks:{display:false,
-              showLabelBackdrop:false,
-            },
-            pointLabels:{display:false},
-            suggestedMin: 50,
-            suggestedMax: 100,
-            pointLabels:{
-              color: 'black',
-              font:{
-                size:25,
-                lineHeight:4,
-                family:'didact gothic',
-                weight: 600
-              }
-            },
-        },
-      }
-    },
-  };
-
-// const el = document.querySelector('#chart');
-// el.classList.add('hidden')
-// Chart.defaults.font.size = 30
-// // new Chart(el,config)
-
-// document.addEventListener('scroll', ()=>{
-//   el.classList.remove('hidden')
-//   el.classList.add('visible_anim')
-// })
 export function createProfilePage(){
   animationWriting('others', 'you', '.text_animation_testimonials')
   getAllTestimonials()
   getAllSkills()
   getAllProjects()
 }
-document.addEventListener('DOMContentLoaded',()=>{
-})
 
 // animation - writing
 /**

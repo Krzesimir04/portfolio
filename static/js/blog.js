@@ -160,7 +160,6 @@ async function getPost(id) {
         const data = await req.json()
         if(req.ok){
             const postsContainer = document.querySelector('.posts')
-            // console.log(data)
             const singlePost = document.querySelector('.single-post')
             singlePost.style.display = 'block'
             postsContainer.style.display = 'none';

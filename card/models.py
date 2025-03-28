@@ -132,12 +132,3 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f"Testimonial from {self.client_name}"
-
-class ContactMessage(models.Model):
-    name = models.CharField(max_length=200)
-    email = models.EmailField()
-    message = models.TextField()
-    sent_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Message from {self.name}"
