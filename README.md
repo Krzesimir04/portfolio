@@ -5,10 +5,11 @@
 ## Requirements:
 - app is mobile responsive,
 - has two apps: card and blog,
-    - in card app there are models with important fields: Project, Skill, Testimonial,
+    - in card app there are models with necessary fields: Project, Skill, Testimonial,
     - in blog app there are models: Category, Post;
 - database data should be loaded asynchronously and managed by JavaScript.
 - admin should be able to login with his email and manage the content in django admin panel
+- user should be able to see full description of the project and download the reference.
 
 ## Files overview
 Files are divided into categories: static, blog, card, templates, other.

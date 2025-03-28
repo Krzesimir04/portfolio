@@ -602,6 +602,7 @@ h3::after {
 .single-post .text {
   font-size: 1.2em;
   margin: 15px 0;
+  word-break: break-all;
 }
 
 dialog {
@@ -749,6 +750,8 @@ footer::after {
     background-color: transparent;
     border: 0;
     margin: 0;
+    position: fixed;
+    right: 15px;
   }
   .hamburger__active .hamburger__inner {
     background-color: transparent;
