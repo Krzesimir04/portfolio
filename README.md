@@ -48,5 +48,18 @@ It is an app folder which contains all files used for blog application.
 Folder created by django to manage files like images.
 
 ## How to run the application
-1. Download the repository
-2. In repository run the env using: source ./
+1. Clone the repository (git clone https://github.com/Krzesimir04/portfolio)
+2. Create new virtual environment (ython3 -m venv env)
+3. Run your env (source env/bin/activate)
+4. Go to portfolio directory (cd portfolio)
+5. Install all packages from requirements.txt file (pip install -r requirements.txt)
+6. Run the server (python3 manage.py runserver)
+
+## Additional notes
+You can see there already is the db.sqlite3 database file. There are some initially created object to be shown in the card (index/main) and blog pages.
+
+There is also created a super user with credentials:
+- email: admin@gmail.com
+- password: admin
+
+So you can log into the django admin panel and see the starter data.
