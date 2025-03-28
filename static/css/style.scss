@@ -742,8 +742,6 @@ footer{
     background-color: transparent;
     border: 0;
     margin: 0;
-    position: fixed;
-    right:15px;
     &__active .hamburger__inner{
         background-color: transparent;
     }
@@ -802,7 +800,8 @@ nav{
 }
 .hamburger__active{
     transform: translateX(-200px);
-    // position: fixed;
+    right: 15px;
+    position: fixed;
     z-index: 3;
 }
 header{
